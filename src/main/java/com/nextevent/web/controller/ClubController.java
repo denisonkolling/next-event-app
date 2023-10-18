@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.function.LongFunction;
 
 @Controller
 public class ClubController {
@@ -30,6 +31,13 @@ public class ClubController {
         List<ClubDto> clubs = clubService.findAllClubs();
         model.addAttribute("clubs", clubs);
         return "clubs-list";
+    }
+
+    @GetMapping("/clubs/{clubId}")
+    public String clubDetail(@PathVariable("clubId")Long clubId, Model model) {
+        ClubDto clubDto = clubService.findClubById(clubId);
+        model.addAttribute("club", clubDto);
+        return "clubs-detail";
     }
 
     @GetMapping("/clubs/new")
