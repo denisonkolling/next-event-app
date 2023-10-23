@@ -3,6 +3,10 @@ package com.nextevent.web.mapper;
 import com.nextevent.web.dto.ClubDto;
 import com.nextevent.web.models.Club;
 
+import java.util.stream.Collectors;
+
+import static com.nextevent.web.mapper.EventMapper.mapToEventDto;
+
 public class ClubMapper {
 
     public static Club mapToClub(ClubDto club) {
@@ -17,7 +21,6 @@ public class ClubMapper {
         return clubDto;
     }
 
-
     public static ClubDto mapToClubDto(Club club){
         ClubDto clubDto = ClubDto.builder()
                 .id(club.getId())
@@ -26,7 +29,9 @@ public class ClubMapper {
                 .content(club.getContent())
                 .createdOn(club.getCreatedOn())
                 .updatedOn(club.getUpdatedOn())
+                .events(club.getEvents().stream().map((event) -> mapToEventDto(event)).collect(Collectors.toList()))
                 .build();
         return clubDto;
     }
+
 }

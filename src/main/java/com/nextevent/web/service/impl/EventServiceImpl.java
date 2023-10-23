@@ -8,7 +8,11 @@ import com.nextevent.web.repository.EventRepository;
 import com.nextevent.web.service.EventService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import static com.nextevent.web.mapper.EventMapper.mapToEvent;
+import static com.nextevent.web.mapper.EventMapper.mapToEventDto;
 
 @Service
 public class EventServiceImpl implements EventService {
@@ -29,6 +33,12 @@ public class EventServiceImpl implements EventService {
         Event event = mapToEvent(eventDto);
         event.setClub(club);
         eventRepository.save(event);
+    }
+
+    @Override
+    public List<EventDto> findAllEvents() {
+        List<Event> events = eventRepository.findAll();
+        return events.stream().map((event) -> mapToEventDto(event)).collect(Collectors.toList());
     }
 
 }
