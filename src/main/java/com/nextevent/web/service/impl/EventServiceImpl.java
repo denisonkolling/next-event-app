@@ -8,6 +8,8 @@ import com.nextevent.web.repository.EventRepository;
 import com.nextevent.web.service.EventService;
 import org.springframework.stereotype.Service;
 
+import static com.nextevent.web.mapper.EventMapper.mapToEvent;
+
 @Service
 public class EventServiceImpl implements EventService {
 
@@ -29,16 +31,4 @@ public class EventServiceImpl implements EventService {
         eventRepository.save(event);
     }
 
-    private Event mapToEvent(EventDto eventDto) {
-        return Event.builder()
-                .id(eventDto.getId())
-                .name(eventDto.getName())
-                .startTime(eventDto.getStartTime())
-                .endTime(eventDto.getEndTime())
-                .type(eventDto.getType())
-                .photoUrl(eventDto.getPhotoUrl())
-                .createdOn(eventDto.getCreatedOn())
-                .updatedOn(eventDto.getUpdatedOn())
-                .build();
-    }
 }
