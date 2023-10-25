@@ -50,7 +50,7 @@ public class ClubServiceImpl implements ClubService {
     }
 
     @Override
-    public void delete(Long clubId) {
+    public void deleteClub(Long clubId) {
             clubRepository.deleteById(clubId);
     }
 

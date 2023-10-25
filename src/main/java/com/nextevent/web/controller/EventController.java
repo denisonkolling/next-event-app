@@ -74,4 +74,5 @@ public class EventController {
         model.addAttribute("event", eventDto);
         return "events-detail";
     }
+
 }

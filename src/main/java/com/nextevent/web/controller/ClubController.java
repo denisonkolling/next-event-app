@@ -73,7 +73,7 @@ public class ClubController {
 
     @GetMapping("/clubs/{clubId}/delete")
     public String deleteClub(@PathVariable("clubId") Long clubId) {
-        clubService.delete(clubId);
+        clubService.deleteClub(clubId);
         return "redirect:/clubs";
     }
 
