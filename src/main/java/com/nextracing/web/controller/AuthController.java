@@ -1,6 +1,7 @@
 package com.nextracing.web.controller;
 
 import com.nextracing.web.dto.RegistrationDto;
+import com.nextracing.web.models.User;
 import com.nextracing.web.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,11 @@ public class AuthController {
         this.userService = userService;
     }
 
+    @GetMapping("/login")
+    public String loginPage() {
+        return "login";
+    }
+
     @GetMapping("/register")
     public String getRegisterForm(Model model) {
         RegistrationDto user = new RegistrationDto();
@@ -27,14 +33,27 @@ public class AuthController {
         return "register";
     }
 
-    @PostMapping("/register")
-    public String saveUser(@Valid @ModelAttribute("user") RegistrationDto registrationDto, BindingResult result,  Model model){
+    @PostMapping("/register/save")
+    public String saveUser(@Valid @ModelAttribute("user") RegistrationDto user, BindingResult result,  Model model){
+
+        User existingUserEmail = userService.findByEmail(user.getEmail());
+        if(existingUserEmail != null && existingUserEmail.getEmail() != null && !existingUserEmail.getEmail().isEmpty()) {
+            return "redirect:/register?fail";
+        }
+
+        User existingUserUsername = userService.findByUsername(user.getUsername());
+        if(existingUserUsername != null && existingUserUsername.getUsername() != null && !existingUserUsername.getUsername().isEmpty()) {
+            return "redirect:/register?fail";
+        }
+
         if(result.hasErrors()){
-            model.addAttribute("user", registrationDto);
+            model.addAttribute("user", user);
             return "register";
         }
-        userService.saveUser(registrationDto);
-        return "redirect:/clubs";
+        userService.saveUser(user);
+        return "redirect:/clubs?success";
     }
+
+
 
 }
