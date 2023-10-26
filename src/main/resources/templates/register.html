@@ -10,10 +10,12 @@
 <main class="flex-shrink-0">
     <!-- Navigation-->
     <section layout:fragment="body" class="py-5">
-        <div class="container">
-            <form class="row g-3" role="form" method="post" th:action="@{/register}" th:object="${user}">
+        <div class="container mt-4 col-md-4">
+        <div class="card">
+            <div class='card-header text-center fs-4'>User Registration</div>
+            <form class="row g-3 p-4" role="form" method="post" th:action="@{/register}" th:object="${user}">
                 <input type="hidden" th:field="*{id}">
-                <div class="col-md-6">
+                <div class="col-12">
                     <label for="username" class="form-label">Username</label>
                     <input
                             type="text"
@@ -25,7 +27,7 @@
                     >
                     <p th:if="${#fields.hasErrors('username')}" class="text-danger" th:errors="*{username}"></p>
                 </div>
-                <div class="col-md-6">
+                <div class="col-12">
                     <label for="email" class="form-label">Email</label>
                     <input
                             type="email"
@@ -53,6 +55,7 @@
                     <button type="submit" class="btn btn-primary">Create</button>
                 </div>
             </form>
+        </div>
         </div>
     </section>
 </main>
