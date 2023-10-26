@@ -1,4 +1,4 @@
-package com.nextevent.web.dto;
+package com.nextracing.web.dto;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Builder;

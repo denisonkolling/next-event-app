@@ -1,6 +1,6 @@
-package com.nextevent.web.service;
+package com.nextracing.web.service;
 
-import com.nextevent.web.dto.EventDto;
+import com.nextracing.web.dto.EventDto;
 
 import java.util.List;
 

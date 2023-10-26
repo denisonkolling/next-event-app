@@ -1,11 +1,11 @@
-package com.nextevent.web.mapper;
+package com.nextracing.web.mapper;
 
-import com.nextevent.web.dto.ClubDto;
-import com.nextevent.web.models.Club;
+import com.nextracing.web.dto.ClubDto;
+import com.nextracing.web.models.Club;
 
 import java.util.stream.Collectors;
 
-import static com.nextevent.web.mapper.EventMapper.mapToEventDto;
+import static com.nextracing.web.mapper.EventMapper.mapToEventDto;
 
 public class ClubMapper {
 

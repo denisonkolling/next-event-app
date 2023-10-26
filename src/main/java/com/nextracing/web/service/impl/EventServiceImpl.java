@@ -1,18 +1,19 @@
-package com.nextevent.web.service.impl;
+package com.nextracing.web.service.impl;
 
-import com.nextevent.web.dto.EventDto;
-import com.nextevent.web.models.Club;
-import com.nextevent.web.models.Event;
-import com.nextevent.web.repository.ClubRepository;
-import com.nextevent.web.repository.EventRepository;
-import com.nextevent.web.service.EventService;
+import com.nextracing.web.dto.EventDto;
+import com.nextracing.web.models.Club;
+import com.nextracing.web.models.Event;
+import com.nextracing.web.repository.ClubRepository;
+import com.nextracing.web.repository.EventRepository;
+import com.nextracing.web.service.EventService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.nextevent.web.mapper.EventMapper.mapToEvent;
-import static com.nextevent.web.mapper.EventMapper.mapToEventDto;
+import static com.nextracing.web.mapper.EventMapper.mapToEvent;
+import static com.nextracing.web.mapper.EventMapper.mapToEventDto;
 
 @Service
 public class EventServiceImpl implements EventService {
@@ -21,6 +22,7 @@ public class EventServiceImpl implements EventService {
 
     private ClubRepository clubRepository;
 
+    @Autowired
     public EventServiceImpl(EventRepository eventRepository, ClubRepository clubRepository) {
         this.eventRepository = eventRepository;
         this.clubRepository = clubRepository;

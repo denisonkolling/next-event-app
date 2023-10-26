@@ -1,7 +1,7 @@
-package com.nextevent.web.mapper;
+package com.nextracing.web.mapper;
 
-import com.nextevent.web.dto.EventDto;
-import com.nextevent.web.models.Event;
+import com.nextracing.web.dto.EventDto;
+import com.nextracing.web.models.Event;
 
 public class EventMapper {
 

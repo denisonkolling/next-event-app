@@ -1,17 +1,17 @@
-package com.nextevent.web.service.impl;
+package com.nextracing.web.service.impl;
 
-import com.nextevent.web.dto.ClubDto;
-import com.nextevent.web.models.Club;
-import com.nextevent.web.repository.ClubRepository;
-import com.nextevent.web.service.ClubService;
+import com.nextracing.web.dto.ClubDto;
+import com.nextracing.web.models.Club;
+import com.nextracing.web.repository.ClubRepository;
+import com.nextracing.web.service.ClubService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.nextevent.web.mapper.ClubMapper.mapToClub;
-import static com.nextevent.web.mapper.ClubMapper.mapToClubDto;
+import static com.nextracing.web.mapper.ClubMapper.mapToClub;
+import static com.nextracing.web.mapper.ClubMapper.mapToClubDto;
 
 @Service
 public class ClubServiceImpl implements ClubService {

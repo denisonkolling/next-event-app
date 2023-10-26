@@ -1,4 +1,4 @@
-package com.nextevent.web.models;
+package com.nextracing.web.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,6 @@
-package com.nextevent.web.repository;
+package com.nextracing.web.repository;
 
-import com.nextevent.web.models.Club;
+import com.nextracing.web.models.Club;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

@@ -1,7 +1,7 @@
-package com.nextevent.web.service;
+package com.nextracing.web.service;
 
-import com.nextevent.web.dto.ClubDto;
-import com.nextevent.web.models.Club;
+import com.nextracing.web.dto.ClubDto;
+import com.nextracing.web.models.Club;
 
 import java.util.List;
 

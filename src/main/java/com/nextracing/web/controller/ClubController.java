@@ -1,8 +1,8 @@
-package com.nextevent.web.controller;
+package com.nextracing.web.controller;
 
-import com.nextevent.web.dto.ClubDto;
-import com.nextevent.web.models.Club;
-import com.nextevent.web.service.ClubService;
+import com.nextracing.web.dto.ClubDto;
+import com.nextracing.web.models.Club;
+import com.nextracing.web.service.ClubService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
