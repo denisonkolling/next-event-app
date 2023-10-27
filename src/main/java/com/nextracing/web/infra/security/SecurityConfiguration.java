@@ -18,7 +18,7 @@ public class SecurityConfiguration {
     private CustomUserDetailsService userDetailsService;
 
     @Autowired
-    public SecurityConfiguration(CustomUserDetailsService userDetailService) {
+    public SecurityConfiguration(CustomUserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 
@@ -29,11 +29,15 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-        http.csrf().disable()
-                .authorizeHttpRequests()
-                .requestMatchers("/login", "/register", "/clubs", "/register/**", "/css/**", "/js/**")
-                .permitAll()
-                .and()
+        http
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests( authorize -> authorize
+                        .requestMatchers("/login").permitAll()
+                        .requestMatchers("/register").permitAll()
+                        .requestMatchers("/register/**").permitAll()
+                        .requestMatchers("/clubs").permitAll()
+                        .anyRequest().authenticated()
+                )
                 .formLogin(form -> form
                         .loginPage("/login")
                         .defaultSuccessUrl("/clubs")

@@ -18,7 +18,7 @@
             </div>
         <div class="card">
             <div class='card-header text-center fs-4'>User Login</div>
-            <form class="row g-3 p-4" role="form" method="post" th:action="@{/login}">
+            <form class="row g-3 p-4" method="post" th:action="@{/login}">
                 <div class="col-12">
                     <label for="username" class="form-label">Username</label>
                     <input
@@ -41,7 +41,7 @@
                 </div>
                 <div class="col-12">
                     <a th:href="@{/register}" class="btn btn-black">Don't have an account already? Register Here.</a>
-                    <button type="submit" class="btn btn-secondary">Login</button>
+                    <button type="submit" value="Log in" class="btn btn-secondary">Login</button>
                 </div>
             </form>
         </div>
