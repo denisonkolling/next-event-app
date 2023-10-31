@@ -40,7 +40,7 @@ public class ClubServiceImpl implements ClubService {
     @Override
     public Club saveClub(ClubDto clubDto) {
         String username = SecurityUtil.getSessionUser();
-        User user = userRepository.findFirstByUsername(username);
+        User user = userRepository.findByEmail(username);
         Club club = mapToClub(clubDto);
         club.setCreatedBy(user);
         return clubRepository.save(club);

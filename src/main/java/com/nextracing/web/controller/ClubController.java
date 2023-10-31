@@ -34,7 +34,7 @@ public class ClubController {
     List<ClubDto> clubs = clubService.findAllClubs();
     String username = SecurityUtil.getSessionUser();
         if(username != null) {
-        user = userService.findByUsername(username);
+        user = userService.findByEmail(username);
         model.addAttribute("user", user);
     }
         model.addAttribute("user", user);
